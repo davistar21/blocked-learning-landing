@@ -116,10 +116,7 @@ interface AuroraProps {
   speed?: number;
 }
 
-import { useTheme } from "next-themes";
-
 export default function Aurora(props: AuroraProps) {
-  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -127,13 +124,8 @@ export default function Aurora(props: AuroraProps) {
   }, []);
 
   const defaultDarkStops = ["#00D5FF", "#6C2EFF", "#00D5FF"];
-  const defaultLightStops = ["#aaf0feff", "#c3a9ffff", "#9887fdef"]; // Cyan -> Purple -> Pink
 
-  const activeStops = props.colorStops
-    ? props.colorStops
-    : mounted && resolvedTheme === "light"
-    ? defaultLightStops
-    : defaultDarkStops;
+  const activeStops = props.colorStops ? props.colorStops : defaultDarkStops;
 
   const { colorStops = activeStops, amplitude = 1.0, blend = 0.5 } = props;
 
