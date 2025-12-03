@@ -5,11 +5,8 @@ import { ArrowRight, Wallet, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Orb from "@/components/Orb";
 import Link from "next/link";
-import { useWeb3Modal } from "@web3modal/wagmi/react";
 
 export default function Hero() {
-  const { open } = useWeb3Modal();
-
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0B0F1A] text-white pt-20">
       {/* Background Orb */}
@@ -67,7 +64,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center gap-4 mt-4"
         >
-          <Link href="/dashboard">
+          <Link href="#">
             <Button
               size="lg"
               className="h-12 px-8 text-base bg-cyan-500 hover:bg-cyan-600 text-white border-0 shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all hover:scale-105"
@@ -80,7 +77,6 @@ export default function Hero() {
             variant="outline"
             size="lg"
             className="h-12 px-8 text-base border-white/20 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all hover:scale-105 cursor-pointer"
-            onClick={() => open()}
           >
             <Wallet className="mr-2 w-5 h-5" />
             Connect Wallet
